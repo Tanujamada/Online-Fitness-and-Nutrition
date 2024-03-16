@@ -1,0 +1,23 @@
+
+
+.entire{
+ background-image:url(../../assets/nut9.jpg);
+ background-size:cover;
+ height:90vh;
+ 
+ 
+}
+
+
+
+.heading{
+ font-size: 50px;
+ font-style:oblique;
+ visibility:hidden;
+}
+
+
+a{
+ color:rgb(12, 143, 104);
+ font-size:1.25rem;
+}

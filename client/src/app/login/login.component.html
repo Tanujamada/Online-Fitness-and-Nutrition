@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="entire">
+        <p class="heading text-dark text-center">Login</p>
+        @if(userCredErr.userCredErrStatus){
+            <p class="text-danger fs-3 text-center">{{userCredErr.userCredErrMessage}}</p>
+        }@else{
+            
+        }
+
+    <!-- username and password (apply validations) -->
+        <form class="w-50 mx-auto" [formGroup]="userCredentials" #ref="ngForm" (ngSubmit)="onSubmitUser()">
+
+            
+        <div>
+            <input type="radio" formControlName="loginType" id="user" value="user">
+            <label for="user">User </label>
+            <input type="radio" formControlName="loginType" id="admin" value="admin">
+            <label for="admin">Admin</label>
+        </div>
+
+        
+        <!-- username -->
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" formControlName="username" placeholder="Enter username" id="username" class="form-control">
+            <!-- validation error message for username -->
+                <div *ngIf="username?.invalid && (username?.dirty || username?.touched || ref.submitted)" class="text-danger">
+                   <p *ngIf="username?.errors?.['required']">Username is required</p>
+                </div>
+            </div>
+
+       <!-- password -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" formControlName="password" id="password" placeholder="Enter password" class="form-control">
+            <!-- validation msg for password -->
+                <div *ngIf="password?.invalid && (password?.dirty || password?.touched || ref.submitted)" class="text-danger">
+                    <p *ngIf="password?.errors?.['required']">Password is required</p>
+                </div>
+            </div>
+
+
+            <button class="btn btn-success d-block mx-auto">Login</button>
+            <p class="sign text-center">Don't have an account? <a routerLink="/register">Sign Up!!</a></p>
+        </form>
+        
+    </div>
+</body>
+
+</html>

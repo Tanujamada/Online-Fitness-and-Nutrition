@@ -1,0 +1,36 @@
+
+
+<div class="one">
+ <h1 class="hi text-center pt-4">Your BMI : {{bmi}}</h1>
+ <h1 class="text-center pt-4">Your BMI : {{bmi}}</h1>
+ <h2 class="text-center pb-3 pt-2">{{status}}</h2>
+ <h4 class="two text-center pb-5">Follow the below diet plan,workout plan to be fit and healthy.You can also try healthy recipes listed below that are good for you.</h4>
+ <div class="merge container mx-auto">
+      <div class="row row-cols-sm-2 row-cols-md-3 m-2">
+           <div class="card shadow h-200 mb-4 mx-4" style="width:300px">
+                <div class="card-body">
+                    <h5 class="card-title p-2">Diet Plan</h5>
+                    <p class="card-text" *ngFor="let diet of dietPlan" >{{diet}}</p>
+                </div>
+           </div>
+           <div class="card shadow h-200 mx-4 mb-4" style="width:300px">
+                <div class="card-body">
+                     <h5 class="card-title p-2">Workout Plan</h5>
+                     <p class="card-text" *ngFor="let workout of workoutPlan" >{{workout}}</p>
+                </div>
+           </div>
+           <div class="card shadow h-200 mx-4 mb-4" style="width:300px">
+                <div class="card-body">
+                     <h5 class="card-title p-2">Healthy Recipes</h5>
+                     <p class="card-text" *ngFor="let recipe of healthyRecipes" >{{recipe}}</p>
+                </div>
+           </div>
+       </div>
+ </div>
+</div>
+
+
+
+
+
+

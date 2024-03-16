@@ -1,0 +1,36 @@
+.navbar{
+ background-color:  rgb(12, 143, 104);
+ color:white;
+ height:60px;}
+
+.offcanvas-title{
+ color:white;}
+
+.offcanvas{
+ background-color: rgb(12, 143, 104);}
+
+.navbar-toggler{
+ border:none;
+ font-size:1.25rem;
+ color:white;}
+
+.navbar-toggler:focus,.btn-close:focus{
+ box-shadow:none;
+ outline:none;}
+ 
+.nav-link{
+ color:white;
+ font-size: 1.25rem;
+}
+.active{
+ background-color:white;
+ color:rgb(12, 143, 104);
+ border-radius: 4px;
+ padding:4px;
+ padding-right: 6px;
+ padding-left: 6px;
+}
+.navbar-brand{
+ font-style: italic;
+ font-size: 1.75rem;
+}

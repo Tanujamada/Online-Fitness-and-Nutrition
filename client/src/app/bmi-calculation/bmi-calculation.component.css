@@ -1,0 +1,22 @@
+
+.card-img{
+ min-height:160vh;
+}
+
+
+.btn{
+ color:white;
+ background-color: rgb(12, 143, 104);
+ border: none;
+ border-radius:8px;
+}
+
+.hi
+{
+ font-style: italic;
+ font-size: 1.5rem;
+}
+
+.hello{
+ visibility:hidden;
+}

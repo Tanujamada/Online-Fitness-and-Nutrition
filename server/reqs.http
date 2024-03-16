@@ -1,0 +1,40 @@
+get http://localhost:4000/user-api/users
+
+###
+get http://localhost:4000/user-api/user/amarendhra
+
+###
+post http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+ "username":"amarendhra",
+ "password":"amarendhra",
+ "email":"a@gmail.com",
+ "dob":"07/03/2024",
+ "gender":"Female",
+ "address":"hyd",
+ "mobile":"9441141176"
+}
+
+###
+post http://localhost:4000/user-api/login
+Content-Type: application/json
+
+{
+ "username":"111111",
+ "password":"111111"
+}
+
+###
+put http://localhost:4000/user-api/user
+content-Type:application/json
+
+{
+ "username":"amarendhra",
+ "email":"tanu@gmail.com"
+}
+
+###
+delete http://localhost:4000/user-api/user/amarendhra
+

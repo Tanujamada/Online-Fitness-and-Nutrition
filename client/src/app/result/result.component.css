@@ -1,0 +1,21 @@
+.tab{
+ margin-top:50px;
+ border:2px solid black;
+}
+
+.hi{
+ visibility: hidden;
+}
+
+
+
+.one{
+ background-image: url('../../assets/hea5.avif');
+background-size: cover;
+max-height:400vh;
+}
+
+.two{
+ padding-left: 20px;
+ padding-right: 20px;
+}

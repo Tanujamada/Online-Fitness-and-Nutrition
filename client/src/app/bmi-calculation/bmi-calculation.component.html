@@ -1,0 +1,53 @@
+
+<div class="card w-100 mx-auto bg-dark">
+ <img src="../../assets/nut8.webp" class="card-img">
+
+ <div class="card-img-overlay">
+
+   <p class="hello card-title text-center mt-2 pb-4">Enter your details to know your Body Mass Index(BMI) and get suitable Diet plan,Workout plan and Healthy recipes based on your BMI</p>
+   <h1>Welcome, {{loggedInUser?.username}}</h1>
+   <p class="hi card-title text-center mt-2 pb-4">Enter your details to know your Body Mass Index(BMI) and get suitable Diet plan,Workout plan and Healthy recipes based on your BMI</p>
+
+   <form class="w-25 mx-auto mt-2" [formGroup]="bmiForm" #ref="ngForm" (ngSubmit)="calculateBMI()">
+s
+     <div class="mb-3">
+       <label for="age" class="form-label">Age:*</label>
+       <input type="number" name="age" id="age" formControlName="age" placeholder="Enter your age" class="form-control">
+       <div *ngIf="age?.invalid && (age?.dirty || age?.touched || ref.submitted)" class="text-danger">
+           <p *ngIf="age?.errors?.['required']">Age is required</p>
+       </div>
+     </div>
+
+     <div class="mb-3">
+       <label for="height" class="form-label">Height(m):*</label>
+       <input type="number" name="height" id="height" formControlName="height" placeholder="Enter your height in meters" class="form-control">
+       <div *ngIf="height?.invalid && (height?.dirty || height?.touched || ref.submitted)" class="text-danger">
+           <p *ngIf="height?.errors?.['required']">Height is required</p>
+       </div>
+     </div>
+
+     <div class="mb-3">
+       <label for="weight" class="form-label">weight(kg):*</label>
+       <input type="number" name="weight" id="" formControlName="weight" placeholder="Enter your weight in kgs" class="form-control">
+       <div *ngIf="weight?.invalid && (weight?.dirty || weight?.touched || ref.submitted)" class="text-danger">
+           <p *ngIf="weight?.errors?.['required']">Weight is required</p>
+       </div>
+     </div>
+
+     <div class="mb-3">
+       <label for="gender" class="form-label">Gender:*</label>
+       <select name="gender" id="gender" formControlName="gender" class="form-control">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+       </select>
+       <div *ngIf="gender?.invalid && (gender?.dirty || gender?.touched || ref.submitted)" class="text-danger">
+         <p *ngIf="gender?.errors?.['required']">Gender is required</p>
+       </div>
+     </div>
+
+     <div class="mx-auto mb-3">
+       <button class="btn mx-auto d-block" (click)="calculateBMI()">Calculate BMI</button>
+     </div>
+   </form>
+ </div>
+</div>

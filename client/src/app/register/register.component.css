@@ -1,0 +1,42 @@
+
+
+.hi{
+ font-style: italic;
+ font-size:50px;
+ }
+ 
+ .name{
+  display:flex;
+  flex-direction: row;
+ 
+ }
+ 
+ 
+ 
+ 
+ .btn{
+  background-color:rgb(12, 143, 104); 
+  border:none;
+ }
+ 
+ a{
+  color: rgb(12, 143, 104);
+  font-size: 1.25rem;
+ }
+ 
+ .btn:hover{
+  background-color: rgb(70, 147, 124);
+ }
+ 
+ .card-img{
+ 
+  min-height:150vh;
+ }
+ 
+ .hello{
+  margin-top: 8px;
+ }
+ 
+ .hel{
+  visibility:hidden;
+ }

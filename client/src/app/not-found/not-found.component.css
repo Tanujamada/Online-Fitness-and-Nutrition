@@ -1,0 +1,19 @@
+.hello{
+ background-color:rgb(12, 143, 104) ;
+ color:white;
+ border-radius: 4px;
+ padding:4px;
+ border:none;
+
+}
+a{
+ color:white;
+}
+
+.cen{
+ height:90vh;
+}
+
+.cen1{
+ visibility: hidden;
+}
