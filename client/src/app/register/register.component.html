@@ -1,138 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  
-   <div class="card w-100 mx-auto bg-dark text-white">
-      <img src="../../assets/nut9.webp" class="card-img">
-      <div class="card-img-overlay">
-         <p class="hel card-title text-center text-light pt-6 mt-6 mb-2">Sign Up</p>
-         <p class="hi card-title text-center text-light pt-8 mt-2">Sign Up</p>
-         <div class="hello">
-           @if(duplicateUserStatus===true){
-            <p class="text-danger text-center fs-2">User already existed</p>
-           }@else{
 
-           }
+  <div class="card w-100 mx-auto bg-dark text-white">
+    <img src="../../assets/nut9.webp" class="card-img">
+    <div class="card-img-overlay">
+      <p class="hel card-title text-center text-light pt-6 mt-6 mb-2">Sign Up</p>
+      <p class="hi card-title text-center text-light pt-8 mt-2">Sign Up</p>
+      <div class="hello">
+        @if(duplicateUserStatus===true){
+        <p class="text-danger text-center fs-2">User already existed</p>
+        }@else{
 
-              <form class="w-50 mt-4 mx-auto" [formGroup]="registerForm"  #ref="ngForm" (ngSubmit)="onSubmit()">
+        }
 
-                <div>
-                  <input type="radio" formControlName="registerType" id="user" value="user">
-                  <label for="user">User</label>
-                  <input type="radio" formControlName="registerType" id="admin" value="admin">
-                  <label for="admin">Admin</label>
-                </div>
+        <form class="w-50 mt-4 mx-auto" [formGroup]="registerForm" #ref="ngForm" (ngSubmit)="onSubmit()">
 
-              <div class="name">
+        
+          <div class="name">
 
-                <!--username-->
-                <div class="mb-3 mx-2">
-                    <label class="form-label text-light">Username*:</label>
-                    <input type="text" formControlName="username" name="username" id="username" placeholder="Enter username" class="form-control">
-                    <!--validation for username-->
-                    <div *ngIf="username?.invalid && (username?.dirty || username?.touched || ref.submitted)" class="text-danger">
-                        <p *ngIf="username?.errors?.['required']">Username is required</p>
-                        <p *ngIf="username?.errors?.['minlength']">min length is 4</p>
-                    </div>
-                </div>
-
-                <!--mobilenumber-->
-                <div class="mb-3 mx-2">
-                    <label class="form-label text-light">Mobile Number*:</label>
-                    <input type="tel" formControlName="mobile" name="mobile" id="mobile" placeholder="Enter mobile number" class="form-control">
-                    <!--validation for mobilenumber-->
-                    <div *ngIf="mobile?.invalid && (mobile?.dirty || mobile?.touched || ref.submitted)" class="text-danger">
-                        <p *ngIf="mobile?.errors?.['required']">Mobile Number is required</p>
-                    </div>
-                </div>
+            <!--username-->
+            <div class="mb-3 mx-2">
+              <label class="form-label text-light">Username*:</label>
+              <input type="text" formControlName="username" name="username" id="username" placeholder="Enter username"
+                class="form-control">
+              <!--validation for username-->
+              <div *ngIf="username?.invalid && (username?.dirty || username?.touched || ref.submitted)"
+                class="text-danger">
+                <p *ngIf="username?.errors?.['required']">Username is required</p>
+                <p *ngIf="username?.errors?.['minlength']">min length is 4</p>
               </div>
+            </div>
 
-              <div class="name">
+            <!--mobilenumber-->
+            <div class="mb-3 mx-2">
+              <label class="form-label text-light">Mobile Number*:</label>
+              <input type="tel" formControlName="mobile" name="mobile" id="mobile" placeholder="Enter mobile number"
+                class="form-control">
+              <!--validation for mobilenumber-->
+              <div *ngIf="mobile?.invalid && (mobile?.dirty || mobile?.touched || ref.submitted)" class="text-danger">
+                <p *ngIf="mobile?.errors?.['required']">Mobile Number is required</p>
+              </div>
+            </div>
+          </div>
 
-                <!--email-->
-                <div class="mb-3 mx-2">
-                    <label class="form-label text-light">Email:</label>
-                    <input type="email" formControlName="email" name="email" id="email" placeholder="john@gmail.com" class="form-control">
-                </div>
+          <div class="name">
 
-                <!--dob-->
-                <div class="mb-3 mx-2">
-      <label class="form-label text-light">Date of Birth:</label>
-      <input type="date" formControlName="dob" name="dob" id="dob" class="form-control">
-     </div>
-</div>
+            <!--email-->
+            <div class="mb-3 mx-2">
+              <label class="form-label text-light">Email:</label>
+              <input type="email" formControlName="email" name="email" id="email" placeholder="john@gmail.com"
+                class="form-control">
+            </div>
 
-<div class="name">
-     <!--password-->
-     <div class="mb-3 mx-2">
-    <label class="form-label text-light">Password*:</label>
-    <input type="password" formControlName="password" name="password" id="password" placeholder="Enter password"  class="form-control">
-   
+            <!--dob-->
+            <div class="mb-3 mx-2">
+              <label class="form-label text-light">Date of Birth:</label>
+              <input type="date" formControlName="dob" name="dob" id="dob" class="form-control">
+            </div>
+          </div>
 
-   <!--validation for password-->
-   <div *ngIf="password?.invalid && (password?.dirty || password?.touched || ref.submitted)" class="text-danger">
-    <p *ngIf="password?.errors?.['required']">Password is required</p>
-    <p *ngIf="password?.errors?.['minlength']">min length is 6</p>
-   </div>
-   </div>
+          <div class="name">
+            <!--password-->
+            <div class="mb-3 mx-2">
+              <label class="form-label text-light">Password*:</label>
+              <input type="password" formControlName="password" name="password" id="password"
+                placeholder="Enter password" class="form-control">
 
-   
-    @if(registerForm.get('registerType').value==='user'){
-    <!--gender -->
-    <div class="mb-3 mx-2">
-     <label class="form-label text-light">Gender:</label>
-     <select formControlName="gender" name="gender" id="gender" placeholder="--select--" class="form-control">
-      <option>Male</option>
-      <option>Female</option>
-    </select>
 
-     
-    <!--validations-->
-    <div *ngIf="gender?.invalid && (gender?.dirty || gender?.touched || ref.submitted)" class="text-danger">
-      <p *ngIf="gender?.errors?.['required']">Gender is required</p>
-  
-     </div>
+              <!--validation for password-->
+              <div *ngIf="password?.invalid && (password?.dirty || password?.touched || ref.submitted)"
+                class="text-danger">
+                <p *ngIf="password?.errors?.['required']">Password is required</p>
+                <p *ngIf="password?.errors?.['minlength']">min length is 6</p>
+              </div>
+            </div>
+
+
+           
+            <!--gender -->
+            <div class="mb-3 mx-2">
+              <label class="form-label text-light">Gender:</label>
+              <select formControlName="gender" name="gender" id="gender" placeholder="--select--" class="form-control">
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+
+
+              <!--validations-->
+              <div *ngIf="gender?.invalid && (gender?.dirty || gender?.touched || ref.submitted)" class="text-danger">
+                <p *ngIf="gender?.errors?.['required']">Gender is required</p>
+
+              </div>
+            </div>
+
+          
+          </div>
+
+          <div class="mb-3 mx-2">
+            <label class="form-label text-light">Address:</label>
+            <textarea formControlName="address" name="address" id="address" placeholder="Enter address"
+              class="form-control"></textarea>
+
+          </div>
+
+
+          <!--submit-->
+
+          <button class="btn btn-primary text-center mx-auto mb-3 mt-3 d-block">Sign Up</button>
+          <p class="text-center text-light">Already had an account? <a routerLink="/login"
+              routerLinkActive="active">Login!!</a></p>
+
+        </form>
+      </div>
     </div>
 
-  }@else{
-    <!--aadhar numebr-->
-    <div class="mb-3 mx-2">
-      <label class="form-label text-light">Aadhar Number*:</label>
-      <input type="tel" formControlName="aadharNumber" name="aadharNumber" id="aadharNumber" placeholder="Enter aadhar Number"  class="form-control">
-    
-    <!--validations-->
-    <div *ngIf="aadharNumber?.invalid && (aadharNumber?.dirty || aadharNumber?.touched || ref.submitted)" class="text-danger">
-      <p *ngIf="aadharNumber?.errors?.['required']">Aadhar number is required</p>
-  
-     </div>
-    </div>
-  }
-    </div>
+  </div>
 
-    <div class="mb-3 mx-2" >
-      <label class="form-label text-light">Address:</label>
-      <textarea formControlName="address" name="address" id="address" placeholder="Enter address" class="form-control"></textarea>
+</body>
 
-    </div>
-   
-   
-   <!--submit-->
-   
-  <button class="btn btn-primary text-center mx-auto mb-3 mt-3 d-block">Sign Up</button>
-  <p class="text-center text-light">Already had an account? <a routerLink="/login" routerLinkActive="active">Login!!</a></p>
-
- </form>
- </div>
- </div>
-
- </div>
- 
- </body>
- </html>
- 
-
+</html>

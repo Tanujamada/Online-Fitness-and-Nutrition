@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { BMICalculationComponent } from './bmi-calculation/bmi-calculation.component';
 import { ResultComponent } from './result/result.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { protectGuard } from './protect.guard';
 
 const routes: Routes = [
   {
@@ -27,7 +28,7 @@ const routes: Routes = [
   // },
   {
     path:'calculation',
-    component:BMICalculationComponent
+    component:BMICalculationComponent,canActivate: [protectGuard]
 
   },
   {

@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   userCredentials: FormGroup
   ngOnInit(): void {
     this.userCredentials = this.fb.group({
-      loginType: [''],
+      
       username: ['', [Validators.required, Validators.minLength(4)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
@@ -43,10 +43,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitUser() {
-    const formData = this.userCredentials.value
-    if (formData.loginType === 'user') {
-      this.userService.userlogin(formData).subscribe({
-      
+   
+   
+      this.userService.userlogin(this.userCredentials.value).subscribe({
+
         next: (res) => {
           console.log(res)
           if (res.message === "login successful") {
@@ -67,35 +67,13 @@ export class LoginComponent implements OnInit {
 
         },
         error: (err) => { console.log('error in user login', err) }
+      
+      
+    
+   
       }
       )
-    }
-    else {
-      this.userService.adminlogin(this.userCredentials.value).subscribe({
-        next: (res) => {
-          console.log(res)
-          if (res.message === "login successful") {
-            //store token in local/session storages
-            localStorage.setItem('token', res.token)
-            //sessionStorage.setItem('token',res.token)
-            this.userService.setAdminLoginStatus(true)
-            this.userService.setCurrentAdmin(res.admin)
-            //  this.router.navigate([`/calculation/${res.user.username}`])
-            this.router.navigate(['/calculation'])
-          }
-          // }else{
-          //   this.userCredErr={
-          //     userCredErrStatus:true,
-          //     userCredErrMessage:res.message
-          //   }
-          // }
-
-
-        },
-        error: (err) => { console.log('error in admin login', err) }
-      }
-      )
-    }
+    
   }
 }
 

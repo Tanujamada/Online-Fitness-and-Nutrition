@@ -1,7 +1,7 @@
 import { Injectable,inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './models/user';
-import { Admin } from './models/admin';
+
 import { Observable } from 'rxjs/internal/Observable';
 import { BehaviorSubject } from 'rxjs';
 
@@ -19,9 +19,6 @@ export class UserService {
     return this.httpClient.post('http://localhost:4000/user-api/user',newUser)
   }
 
-  createAdmin(newAdmin:Admin):Observable<any>{
-    return this.httpClient.post('http://localhost:4000/admin-api/admin',newAdmin)
-  }
  
 
   //user login
@@ -32,11 +29,6 @@ export class UserService {
   }
 
   
-  adminlogin(admincredobj:Admin):Observable<any>{
-    //console.log(usercredobj)
-    return this.httpClient.post('http://localhost:4000/admin-api/login',admincredobj)
-  }
- 
  
   
 
@@ -51,17 +43,7 @@ export class UserService {
     mobile:''
   })
 
-  
-  AdminLoginStatus = new BehaviorSubject<boolean>(false);
-  currentAdmin=new BehaviorSubject<Admin>({
-    username:'',
-    password:'',
-    email:'',
-    dob:'',
-    aadharNumber:'',
-    address:'',
-    mobile:''
-  })
+ 
 
   
  
@@ -72,12 +54,7 @@ export class UserService {
     this.currentUser.next(user)
   }
 
-  setAdminLoginStatus(value: boolean) {
-    this.AdminLoginStatus.next(value)
-  }
-  setCurrentAdmin(admin:Admin){
-    this.currentAdmin.next(admin)
-  }
+ 
 
 
   getUserLoginStatus() {
@@ -87,12 +64,7 @@ export class UserService {
     return this.currentUser.asObservable()
   }
   
-  getAdminLoginStatus() {
-    return this.AdminLoginStatus.asObservable();
-  }
-  getCurrentAdmin(){
-    return this.currentAdmin.asObservable()
-  }
+ 
   
 
   userLogout(){

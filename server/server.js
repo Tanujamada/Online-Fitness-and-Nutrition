@@ -15,7 +15,7 @@ app.use(exp.static(path.join(__dirname,'../client/dist/online-fitness/browser'))
 require('dotenv').config()
 
 //add body parse middleware
-app.use(exp.json())
+ app.use(exp.json())
 
 
 const DB_URL=process.env.ATLAS_DB_URL
@@ -27,15 +27,13 @@ mongoose.connect(DB_URL)
 
 //import api
 const userApp=require('./APIs/user-api')
-//import api of adminApp
-const adminApp=require('./APIs/admin-api')
+
 
 
 //forward req to userApp when path starts with '/user-api'
 app.use('/user-api',userApp)
 
-//forward req to adminApp when path starts with '/admin-api'
-app.use('/admin-api',adminApp)
+
 
 //errror handler
 app.use((err,req,res,next)=>{
