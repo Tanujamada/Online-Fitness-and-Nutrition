@@ -50,10 +50,10 @@ export class RegisterComponent {
  
  duplicateUserStatus:boolean=false
  duplicateAdminStatus:boolean=false;
-fb:FormBuilder=inject(FormBuilder);
-userService=inject(UserService)
-router=inject(Router)
-registerForm:FormGroup
+ fb:FormBuilder=inject(FormBuilder);
+ userService=inject(UserService)
+ router=inject(Router)
+ registerForm:FormGroup
  
 ngOnInit(){
  this.registerForm=this.fb.group({
@@ -62,7 +62,7 @@ ngOnInit(){
   password:['',[Validators.required,Validators.minLength(6)]],
   email:[''],
   dob:[''],
-  gender:[''],
+  gender:['',[Validators.required]],
   address:[''],
   mobile:['',[Validators.required]],
   aadharNumber:['',[Validators.required,Validators.pattern(/^[0-9]{12}$/)]]
@@ -70,7 +70,9 @@ ngOnInit(){
 }
 
 onSubmit(){
-  if(this.registerForm.valid){
+  console.log("helooooo")
+ // if(this.registerForm.valid){
+    console.log("hiiiiii")
     const formData=this.registerForm.value
     console.log(formData)
     if(formData.registerType==='user'){
@@ -127,7 +129,9 @@ onSubmit(){
     else{
       console.log('form is invalid')
     }
-   }
+  // }else{
+  //   console.log('there is something error')
+  // }
 }
 }
 

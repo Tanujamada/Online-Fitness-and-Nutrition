@@ -87,11 +87,18 @@
     <div class="mb-3 mx-2">
      <label class="form-label text-light">Gender:</label>
      <select formControlName="gender" name="gender" id="gender" placeholder="--select--" class="form-control">
-      <option>--select--</option>
       <option>Male</option>
       <option>Female</option>
     </select>
+
+     
+    <!--validations-->
+    <div *ngIf="gender?.invalid && (gender?.dirty || gender?.touched || ref.submitted)" class="text-danger">
+      <p *ngIf="gender?.errors?.['required']">Gender is required</p>
+  
+     </div>
     </div>
+
   }@else{
     <!--aadhar numebr-->
     <div class="mb-3 mx-2">

@@ -25,7 +25,8 @@ const userSchema=new mongoose.Schema({
    type:Date
   },
   gender:{
-    type:String
+    type:String,
+    required:[true,'gender is required but it is missed']
   },
   address:{
     type:String

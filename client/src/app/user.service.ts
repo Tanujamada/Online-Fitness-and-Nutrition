@@ -26,13 +26,13 @@ export class UserService {
 
   //user login
  
-  userlogin(usercredobj:any):Observable<any>{
-    //console.log(usercredobj)
+  userlogin(usercredobj:User):Observable<any>{
+    console.log(usercredobj)
     return this.httpClient.post('http://localhost:4000/user-api/login',usercredobj)
   }
 
   
-  adminlogin(admincredobj:any):Observable<any>{
+  adminlogin(admincredobj:Admin):Observable<any>{
     //console.log(usercredobj)
     return this.httpClient.post('http://localhost:4000/admin-api/login',admincredobj)
   }

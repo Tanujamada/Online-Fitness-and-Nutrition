@@ -22,8 +22,9 @@ post http://localhost:4000/user-api/login
 Content-Type: application/json
 
 {
- "username":"111111",
- "password":"111111"
+ "loginType":"user",
+ "username":"bhaktula",
+ "password":"bhaktula"
 }
 
 ###
