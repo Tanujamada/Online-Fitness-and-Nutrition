@@ -11,7 +11,7 @@ import { UserService } from '../user.service';
   templateUrl: './bmi-calculation.component.html',
   styleUrl: './bmi-calculation.component.css'
 })
-export class BMICalculationComponent {
+export class BmiCalculationComponent {
 
   get age() {
     return this.bmiForm.get('age')

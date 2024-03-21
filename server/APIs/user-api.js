@@ -3,7 +3,6 @@ const exp=require('express')
 const userApp=exp.Router()
 
 
-
 //get express-async-handler
 const expressAsyncHandler=require('express-async-handler')
 
@@ -24,7 +23,7 @@ userApp.get('/user/:username',expressAsyncHandler(getUserByUsername))
 userApp.post('/user',expressAsyncHandler(createUser))
 
 //login user
-userApp.post('/login',expressAsyncHandler(loginUser))
+userApp.post('/user-login',expressAsyncHandler(loginUser))
 
 
 //update user

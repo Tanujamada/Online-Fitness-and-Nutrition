@@ -48,20 +48,43 @@ const createUser=async (req,res)=>{
 //login user
 const loginUser=async (req,res)=>{
        //get user credentials
+      
        let newUser=await User.findOne({username:req.body.username})
-       //if invalid username
-       if(newUser===null){
+      //if invalid username
+       if(newUser!==null){
+              const result=await bcryptjs.compare(req.body.password,newUser.password)
+              if(result===false){
+              
+                     return res.status(200).send({message:"invalid password"})
+                     
+                     
+              }else{
+                     //create jwt token and sign it
+              const signedToken=jwt.sign({username:newUser.username},process.env.SECRET_KEY,{expiresIn:"1d"})
+              res.status(400).send({ message:"login success", token: signedToken,user:newUser})
+           
+              }
+
+
+       }else{
               return res.status(200).send({message:"invalid username"})
+
        }
+
+
+
+
+
+
+              
+       
        //if username was found compare passwordss
-       const result=await bcryptjs.compare(req.body.password,newUser.password)
+       // const result=await bcryptjs.compare(req.body.password,newUser.password)
+       
        //if password not matched
-       if(result===false){
-              return res.status(200).send({message:"invalid password"})
-       }
-       //create jwt token and sign it
-       const signedToken=jwt.sign({username:newUser.username},process.env.SECRET_KEY,{expiresIn:"1d"})
-       res.status(400).send({message:"login successful",token:signedToken,user:newUser})
+       
+       
+       
 }
 
 

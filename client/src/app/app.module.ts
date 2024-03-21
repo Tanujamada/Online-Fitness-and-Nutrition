@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BMICalculationComponent } from './bmi-calculation/bmi-calculation.component';
+import { BmiCalculationComponent } from './bmi-calculation/bmi-calculation.component';
 import { ResultComponent } from './result/result.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { authInterceptor } from './auth.interceptor';
@@ -23,7 +23,7 @@ import { authInterceptor } from './auth.interceptor';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    BMICalculationComponent,
+    BmiCalculationComponent,
     ResultComponent,
     NotFoundComponent,
     
@@ -33,7 +33,7 @@ import { authInterceptor } from './auth.interceptor';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ provideHttpClient(withFetch()),provideHttpClient(withInterceptors([authInterceptor]))],
+  providers: [provideHttpClient(withFetch()),provideHttpClient(withInterceptors([authInterceptor]))],
   bootstrap: [AppComponent]
 })
 

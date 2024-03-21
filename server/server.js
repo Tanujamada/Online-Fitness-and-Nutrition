@@ -6,6 +6,8 @@ const path=require('path')
 
 //import mongoose
 const mongoose=require('mongoose')
+//add body parse middleware
+app.use(exp.json())
 
 
 //connect angular app with server
@@ -14,8 +16,7 @@ app.use(exp.static(path.join(__dirname,'../client/dist/online-fitness/browser'))
 //configure environment variables
 require('dotenv').config()
 
-//add body parse middleware
- app.use(exp.json())
+
 
 
 const DB_URL=process.env.ATLAS_DB_URL
@@ -26,12 +27,12 @@ mongoose.connect(DB_URL)
 .catch(err=>console.log("error occured",err))
 
 //import api
-const userApp=require('./APIs/user-api')
+const usersApp=require('./APIs/user-api')
 
 
 
 //forward req to userApp when path starts with '/user-api'
-app.use('/user-api',userApp)
+app.use('/user-api',usersApp)
 
 
 

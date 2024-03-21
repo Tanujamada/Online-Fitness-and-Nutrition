@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.userCredentials = this.fb.group({
       
-      username: ['', [Validators.required, Validators.minLength(4)]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
 
@@ -44,12 +44,11 @@ export class LoginComponent implements OnInit {
 
   onSubmitUser() {
    
-   
       this.userService.userlogin(this.userCredentials.value).subscribe({
-
+  
         next: (res) => {
           console.log(res)
-          if (res.message === "login successful") {
+          if(res.message === "login success"){
             //store token in local/session storages
             localStorage.setItem('token', res.token)
             //sessionStorage.setItem('token',res.token)
@@ -58,6 +57,7 @@ export class LoginComponent implements OnInit {
             //  this.router.navigate([`/calculation/${res.user.username}`])
             this.router.navigate(['/calculation'])
           } else {
+            console.log(res)
             this.userCredErr = {
               userCredErrStatus: true,
               userCredErrMessage: res.message

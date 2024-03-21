@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { BMICalculationComponent } from './bmi-calculation/bmi-calculation.component';
+import { BmiCalculationComponent } from './bmi-calculation/bmi-calculation.component';
 import { ResultComponent } from './result/result.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { protectGuard } from './protect.guard';
@@ -28,7 +28,7 @@ const routes: Routes = [
   // },
   {
     path:'calculation',
-    component:BMICalculationComponent,canActivate: [protectGuard]
+    component:BmiCalculationComponent,canActivate: [protectGuard]
 
   },
   {

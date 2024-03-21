@@ -5,22 +5,58 @@
 }
 
 .font{
- font-size: 2.5rem;
+ font-size: 3rem;
  font-style:italic;
- color:white;
+ color:black;
 
 }
 
 .font1{
- font-size: 2rem;
+ font-size: 2.5rem;
  font-style:italic;
- color:white;
+ color:black;
+ margin-bottom: 30px;
 
 }
 
+.button{
+ background-color: white;
+ color:black;
+ border-radius:10px;
+ border: none;
+ text-decoration: none;
+ padding: 10px;
+ /* height: 20px;
+ width: 40px; */
+}
+
+.button a{
+ text-decoration: none;
+ color:black;
+ font-size: 2rem;
+}
+
+.button a:hover{
+ color:rgb(12, 143, 104);
+}
 
 .small{
  font-size:2rem;
  font-style:italic;
  color:black;
 }
+
+.carousel-caption{
+ top:0;
+  bottom:auto; 
+}
+ /* d-none d-md-block
+} */ 
+
+@media screen and (orientation:landscape){
+ .carousel img{
+  max-height:90vh;
+ }
+}
+
+/*  d-flex flex-column h-100 align-items-center justify-content-center bottom-0*/

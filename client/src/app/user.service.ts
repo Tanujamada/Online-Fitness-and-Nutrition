@@ -24,8 +24,7 @@ export class UserService {
   //user login
  
   userlogin(usercredobj:User):Observable<any>{
-    console.log(usercredobj)
-    return this.httpClient.post('http://localhost:4000/user-api/login',usercredobj)
+    return this.httpClient.post<any>('http://localhost:4000/user-api/user-login',usercredobj)
   }
 
   
